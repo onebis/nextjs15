@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 .idea
-
+git remote add origin git@github.com:onebis/nextjs15.git
 # dependencies
 /node_modules
 /.pnp
