@@ -9,19 +9,20 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 })
 
-import prettierPlugin from 'eslint-plugin-prettier'
-import importPlugin from 'eslint-plugin-import'
-
-export default [
-  ...compat.extends('next/core-web-vitals', 'next/typescript', 'plugin:prettier/recommended'),
+const eslintConfig = [
+  ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {
-    plugins: {
-      prettier: prettierPlugin,
-      import: importPlugin,
-    },
     rules: {
-      'prettier/prettier': ['error'],
-      'import/order': ['warn', { groups: [['builtin', 'external', 'internal']] }],
+      'import/order': [
+        'error',
+        {
+          alphabetize: {
+            order: 'asc',
+          },
+        },
+      ],
     },
   },
 ]
+
+export default eslintConfig
